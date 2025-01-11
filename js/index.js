@@ -15,23 +15,23 @@ const displayPost = (posts) => {
     const postContainer = document.getElementById('post-container');
 
     postContainer.innerText = '';
-    posts = posts.slice(0,3)
+    posts = posts.slice(0, 3)
 
     posts.forEach(post => {
         // console.log(post)
 
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="flex justify-normal bg-[#F3F3F5] rounded-2xl gap-x-12 py-10 pl-10 pr-16 mt-12 items-center">
+        <div class="lg:flex justify-normal bg-[#F3F3F5] rounded-2xl gap-x-12 py-10 pl-10 pr-16 mt-12 items-center shadow-md">
             <div>
                 <div id="green-${post.id}" class="h-3 w-3 bg-green-700 rounded-full relative top-2 left-[160px] hidden"></div>
 
                 <div id="red-${post.id}" class="h-3 w-3 bg-red-700 rounded-full relative top-0 left-[160px] hidden"></div>
 
-                <img class="h-44 w-40 rounded-xl" src="${post.image}" alt="">
+                <img class=" h-44 w-40 rounded-xl " src="${post.image}" alt="">
             </div>
 
-            <div>
+            <div class="sm: mt-3">
                 <div class="flex justify-normal space-x-4">
                     <p class="text-gray-800 font-inter text-sm font-medium"># ${post.category}</p>
                     <p class="text-gray-800 font-inter text-sm font-medium">Author : ${post.author.name}</p>
@@ -43,7 +43,7 @@ const displayPost = (posts) => {
                 <p class="text-gray-600 font-inter text-base font-normal mt-4">${post.description}</p>
                 </div>
 
-                <hr class="mt-5 w-[620px]">
+                <hr class="mt-5 lg:w-[620px]">
 
                 <div class="flex justify-between mt-5">
                  <div class="flex justify-between space-x-14 items-center">
@@ -66,11 +66,11 @@ const displayPost = (posts) => {
         const redCircle = document.getElementById(`red-${post.id}`);
 
         if (post.isActive) {
-            greenCircle.classList.remove('hidden'); 
-            redCircle.classList.add('hidden'); 
+            greenCircle.classList.remove('hidden');
+            redCircle.classList.add('hidden');
         } else {
-            greenCircle.classList.add('hidden'); 
-            redCircle.classList.remove('hidden'); 
+            greenCircle.classList.add('hidden');
+            redCircle.classList.remove('hidden');
         }
     })
     handleLoadingSpinner(false);
@@ -120,7 +120,7 @@ const displayLatestPost = (latestPosts) => {
         const div = document.createElement('div');
 
         div.innerHTML = `
-        <div class="bg-white rounded-3xl border-[1px] border-gray-200 p-6">
+        <div class="bg-white rounded-3xl border-[1px] border-gray-200 p-6 shadow-lg">
                         <img class="rounded-2xl" src="${latestPost.cover_image}" alt="">
                         <p class="text-gray-400 text-base font-normal mt-4"><i class="fa-regularfa-calendar-minus"></i> ${latestPost.author?.posted_date ?? "Unknown"}</p>
                         <h1 class="text-[#12132D] font-mulish text-lg font-extrabold mt-4">${latestPost.title}</h1>
@@ -175,7 +175,7 @@ const titleContainerHandle = async (id) => {
 
         if (post.id == id) {
             div.innerHTML = `
-            <div class="flex justify-between items-center p-4 bg-white rounded-xl">
+            <div class="flex justify-between items-center p-4 bg-white rounded-xl shadow-lg">
             <h1 class="text-black font-mulish text-base font-semibold">${post.title}</h1>
             <p class="text-gray-400 font-inter text-base font-normal"><i class="fa-regular fa-eye"></i>
             ${post.view_count}</p>
