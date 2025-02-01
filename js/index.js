@@ -1,8 +1,8 @@
 /***************** All Post API **************************/
 
 const loadPost = async () => {
-    const rec = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
-    const data = await rec.json();
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+    const data = await res.json();
     const posts = data.posts;
     // console.log(posts);
     displayPost(posts);
@@ -80,8 +80,8 @@ const displayPost = (posts) => {
 /***************** Latest Post API **************************/
 
 const loadLatestPost = async () => {
-    const rec = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
-    const data = await rec.json();
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await res.json();
     // console.log(data);
     displayLatestPost(data)
 };
@@ -102,8 +102,8 @@ const handleSearch = () => {
 /***************** Search By Query API **************************/
 
 const postSearchByQuery = async (category) => {
-    const rec = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`);
-    const data = await rec.json();
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`);
+    const data = await res.json();
     const result = data.posts;
 
     // console.log(result);
@@ -165,8 +165,8 @@ const titleContainerHandle = async (id) => {
     setTextElementValueById('total-read', clickCount);
     clickCount++;
 
-    const rec = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?${id}`);
-    const data = await rec.json();
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?${id}`);
+    const data = await res.json();
     const posts = data.posts;
     // console.log(posts);  
 
